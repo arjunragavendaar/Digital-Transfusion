@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Donors</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <!-- <script src='main.js'></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="css/toastr.min.css" rel="stylesheet">
+    <link href="css/ip2location-image-sprite.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- <div class="container">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#displaycards">Donor Requests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#displaycards2">Recipient Request</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#chart_div">Analytics</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#Donarslist">Transactions</a>
+      </li>
+    </ul>
+  </div> -->
+
+  <!-- Tabs navs -->
+
+  <div class='container' id ="authcheck">
+    <div class="text-center">
+
+      <h3 id='country-name'>Authorizer Signup</h3>      
+      <div id='flagpic'></div>
+    </div>
+
+     <div class='row col-lg-12 text-center'>             
+      <div class="col-lg-12 windowbox">
+          <div class="form-group">
+              <label class="sr-only">Username</label>
+              <input type="text" class="form-control" id="authuname" placeholder="Enter Username">
+              <!-- <br>
+              <button type="button" id="initilaizeCounter" class="btn btn-primary ">Initialize</button> -->
+          </div>
+          <div class="form-group">
+            <label class="sr-only">Address</label>
+            <input type="text" class="form-control" id="authaddress" placeholder="Enter Address">
+            <!-- <br>
+            <button type="button" id="initilaizeCounter" class="btn btn-primary ">Initialize</button> -->
+        </div>
+          <div class="form-group">
+              <label class="sr-only">Contact</label>
+              <input type="text" class="form-control" id="authcontact" placeholder="Enter Contact">
+              <br>
+              <button type="button" id="authsignup" class="btn btn-primary ">Signup</button>
+              <!-- <br>
+              <button type="button" id="incrementCounter"  class="btn btn-primary ">Increment</button> -->
+          </div>
+      </div>
+      <!-- <div class="col-lg-6 windowbox">
+          <div class="form-group ">
+              <button type="button" id="getuser" class="btn btn-info mb-2">View User</button>
+              <h1 id="user_value" style="color:black"></h1>
+          </div>
+      </div> -->
+    </div>
+  </div>
+  
+<section class="container py-4" id="authcheck1">
+  <div class="row">
+      <div class="col-md-12">
+          <ul id="tabs" class="nav nav-tabs">
+              <li class="nav-item"><a href="" data-target="#displaycards" data-toggle="tab" class="nav-link small text-uppercase active">Donor Transactions</a></li>
+              <li class="nav-item"><a href="" data-target="#displaycards2" data-toggle="tab" class="nav-link small text-uppercase ">Recipient Transactions</a></li>
+              <li class="nav-item"><a href="" data-target="#analytics" data-toggle="tab" class="nav-link small text-uppercase">Analytics</a></li>
+              <li class="nav-item"><a href="" data-target="#Donarslist" data-toggle="tab" class="nav-link small text-uppercase">Transfusion Proceedings</a></li>
+              <li class="nav-item"><a href="" data-target="#airdrop" data-toggle="tab" class="nav-link small text-uppercase">Air Drop</a></li>
+          </ul>
+          <br>
+          <!-- <div id="tabsContent" class="tab-content">
+              <div id="home1" class="tab-pane fade active show">
+                  <div class="list-group"><a href="" class="list-group-item d-inline-block"><span class="float-right badge badge-pill badge-dark">51</span> Home Link</a> <a href="" class="list-group-item d-inline-block"><span class="float-right badge badge-pill badge-dark">8</span> Link 2</a> <a href="" class="list-group-item d-inline-block"><span class="float-right badge badge-pill badge-dark">23</span> Link 3</a> <a href="" class="list-group-item d-inline-block text-muted">Link n..</a></div>
+              </div>
+              <div id="profile1" class="tab-pane fade ">
+                  <div class="row pb-2">
+                      <div class="col-md-7">
+                          <p>Tabs can be used to contain a variety of content &amp; elements. They are a good way to group <a href="" class="link">relevant content</a>. Display initial content in context to the user. Enable the user to flow through <a href="" class="link">more</a> information as needed. </p>
+                      </div>
+                      <div class="col-md-5"><img src="//dummyimage.com/1005x559.png/5fa2dd/ffffff" class="float-right img-fluid img-rounded"></div>
+                  </div>
+              </div>
+              <div id="messages1" class="tab-pane fade">
+                  <div class="list-group"><a href="" class="list-group-item d-inline-block"><span class="float-right badge badge-pill badge-dark">44</span> Message 1</a> <a href="" class="list-group-item d-inline-block"><span class="float-right badge badge-pill badge-dark">8</span> Message 2</a> <a href="" class="list-group-item d-inline-block"><span class="float-right badge badge-pill badge-dark">23</span> Message 3</a> <a href="" class="list-group-item d-inline-block text-muted">Message n..</a></div>
+              </div>
+          </div> -->
+      
+  
+  <!-- <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#displaycards">Donors</a></li>&nbsp;
+    <li><a data-toggle="tab" href="#displaycards2">Recipients</a></li>&nbsp;
+    <li><a data-toggle="tab" href="#chart_div">Data</a></li>&nbsp;
+  </ul> -->
+  <div id="tabsContent" class="tab-content">
+    <div class="card-deck tab-pane fade active show" id="displaycards" >
+      <!-- <h2>Donors</h2> -->
+    <!-- <div class="card" style="width: 18rem;">
+        <img src="https://microbiology.ucr.edu/sites/default/files/styles/form_preview/public/blank-profile-pic.png?itok=4teBBoet" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">John Doe</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn">Blood Group</a>
+        </div>
+      </div> -->
+      <!-- <div class="card" style="width: 18rem;">
+        <img src="https://microbiology.ucr.edu/sites/default/files/styles/form_preview/public/blank-profile-pic.png?itok=4teBBoet" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">John Doe</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn">Blood Group</a>
+        </div>
+      </div> -->
+    </div>
+   <br>
+    <div class="card-deck tab-pane fade" id="displaycards2">
+      <!-- <h2>Donors</h2> -->
+    <!-- <div class="card" style="width: 18rem;">
+        <img src="https://microbiology.ucr.edu/sites/default/files/styles/form_preview/public/blank-profile-pic.png?itok=4teBBoet" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">John Doe</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn">Blood Group</a>
+        </div>
+      </div> -->
+      <!-- <div class="card" style="width: 18rem;">
+        <img src="https://microbiology.ucr.edu/sites/default/files/styles/form_preview/public/blank-profile-pic.png?itok=4teBBoet" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">John Doe</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn">Blood Group</a>
+        </div>
+      </div> -->
+    </div>
+  
+     <br><br>
+   <div id="analytics" class="tab-pane fade">
+  <div id="chart_div" style="width:1500px;height:300px;"></div>
+  <div id="chart_div1" style="width:1500px;height:300px;"></div>
+  <div id="chart_div2" style="width: 1100px;height: 530px;margin-left: 730px;margin-top: -580px;"></div>
+  </div>
+  <div class="container tab-pane fade" id="Donarslist">
+    <h2>Transfusion Proceedings</h2>
+    <!-- <p>Type something in the input field to search the table for first names, last names or emails:</p>   -->
+    <input class="form-control" id="myInput1" type="text" placeholder="Search..">
+    <br>
+    <table class="table table-bordered table-striped" id="Donarslist">
+      <thead>
+        <tr>
+          <th>Recipient ID</th>
+          <th>Donar Name</th>
+          <th>DONAR ID</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Blood Group</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="myTable1">
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class='container tab-pane fade' id ="airdrop">
+    <div class="text-center">
+
+      <h3 id='country-name'>Air Drop</h3>      
+      <div id='flagpic'></div>
+    </div>
+
+     <div class='row col-lg-12 text-center'>             
+      <div class="col-lg-12 windowbox">
+          <div class="form-group">
+              <label class="sr-only">Address</label>
+              <input type="text" class="form-control" id="airdropadd" placeholder="Address of User">
+              <!-- <br>
+              <button type="button" id="initilaizeCounter" class="btn btn-primary ">Initialize</button> -->
+          </div>
+          <div class="form-group">
+              <label class="sr-only">Tokens</label>
+              <input type="number" class="form-control" id="tokenval" placeholder="Enter Tokens">
+              <br>
+              <button type="button" id="airdropsend" class="btn btn-primary ">Send</button>
+              <!-- <br>
+              <button type="button" id="incrementCounter"  class="btn btn-primary ">Increment</button> -->
+          </div>
+      </div>
+      <!-- <div class="col-lg-6 windowbox">
+          <div class="form-group ">
+              <button type="button" id="getuser" class="btn btn-info mb-2">View User</button>
+              <h1 id="user_value" style="color:black"></h1>
+          </div>
+      </div> -->
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+</section>
+
+
+    <script  src="js/toastr.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.37/dist/web3.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="js/app.js"></script>
+    <!-- <script>
+       $(document).ready(function () {
+        setTimeout(App.getdonordetails,1500);
+        
+});
+    </script> -->
+    <script>
+      $(document).ready(function(){
+  $("#myInput1").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable1 tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+    </script>
+</body>
+</html>
+
+<style>
+    .card {
+  margin-top: 2em;
+  padding: 1.5em 0.5em 0.5em;
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  height: 34rem;
+  margin-right: 10px;
+}
+.card img {
+  width: 65%;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.card .card-title {
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.card .btn {
+  border-radius: 2em;
+  background-color: #0d42ff;
+  color: #ffffff;
+  padding: 0.5em 1.5em;
+  margin-top: 4px;
+}
+.card .btn:hover {
+  background-color: rgba(0, 128, 128, 0.7);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.card-deck{
+    display: inline-flex;
+}
+.card-deck .card{
+  display: inline-flex;
+}
+</style>
+
+
